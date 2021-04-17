@@ -34,7 +34,6 @@ class NewVisitorTest(LiveServerTestCase):
         # Edith has heard about a cool new online to-do app. She goes
         # to check out its homepage
         # The page updates again, and now shows both items on her list
-        
         self.wait_for_row_in_list_table('2: Use peacock feathers to make a fly')
         self.wait_for_row_in_list_table('1: Buy peacock feathers')
         # Satisfied, she goes back to sleep
