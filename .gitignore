@@ -3,3 +3,4 @@
 /lists/frag-master.tex
 db.sqlite3geckodriver.log
 *.pyc
+/static/
