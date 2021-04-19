@@ -4,3 +4,4 @@
 db.sqlite3geckodriver.log
 *.pyc
 /static/
+*.pyc
