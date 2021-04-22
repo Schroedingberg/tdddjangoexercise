@@ -7,6 +7,8 @@ CONDA = True
 
 REPO_URL = 'https://github.com/Schroedingberg/tdddjangoexercise.git'
 
+conda_binary = f'/home/{env.user}/miniconda3/condabin/conda'
+
 def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
     run(f'mkdir -p {site_folder}')
@@ -41,8 +43,8 @@ def _get_latest_source():
 def _update_virtualenv():
     if CONDA:
         if not exists(f'/home/{env.user}/miniconda3/envs/old_django'):
-            run('conda create --name old_django python=3.6')
-        run('conda install --force-reinstall -y -q --name old_django  --file requirements.txt')
+            run(f'{conda_binary} create --name old_django python=3.6')
+        run(f'{conda_binary} install --force-reinstall -y -q --name old_django  --file requirements.txt')
     else:
         if not exists('virtualenv/bin/pip'):
             run(f'python3.7 -m venv virtualenv')
