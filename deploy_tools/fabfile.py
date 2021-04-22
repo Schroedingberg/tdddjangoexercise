@@ -64,14 +64,16 @@ def _create_or_update_dotenv( ):
 
 def _update_static_files():
     if CONDA:
-        run(f'/home/{env.user}/miniconda3/bin/python manage.py collectstatic --noinput')
+        #run(f'/home/{env.user}/miniconda3/bin/python manage.py collectstatic --noinput')
+        pass # see above
     else:
         run('./virtualenv/bin/python manage.py collectstatic --noinput')
 
 
 def _upgrade_database():
     if CONDA:
-        run(f'/home/{env.user}/miniconda3/bin/python manage.py migrate --noinput')
+        #run(f'/home/{env.user}/miniconda3/bin/python manage.py migrate --noinput')
+        pass # see above
     else:
         run('./virtualenv/bin/python manage.py migrate --noinput')
     
