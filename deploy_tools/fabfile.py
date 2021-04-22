@@ -15,7 +15,7 @@ def deploy():
         _update_virtualenv()
         _create_or_update_dotenv()
         _update_static_files()
-        _update_database()
+        _upgrade_database()
 
 
 
