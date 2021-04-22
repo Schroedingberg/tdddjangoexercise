@@ -67,5 +67,8 @@ def _update_static_files():
 
 
 def _upgrade_database():
-    run('./virtualenv/bin/python manage.py migrate --noinput')
+    if CONDA:
+        run(f'/home/{env.user}/miniconda3/bin/python manage.py migrate --noinput')
+    else:
+        run('./virtualenv/bin/python manage.py migrate --noinput')
     
