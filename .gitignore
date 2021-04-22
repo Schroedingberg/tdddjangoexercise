@@ -7,3 +7,5 @@ db.sqlite3geckodriver.log
 *.pyc
 .env
 *.pyc
+__pycache__
+superlists/__pycache__/*
