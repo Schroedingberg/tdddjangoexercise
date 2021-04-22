@@ -42,9 +42,10 @@ def _get_latest_source():
 
 def _update_virtualenv():
     if CONDA:
-        if not exists(f'/home/{env.user}/miniconda3/envs/old_django'):
-            run(f'{conda_binary} create --name old_django python=3.6')
-        run(f'{conda_binary} install --force-reinstall -y -q --name old_django  --file requirements.txt')
+        #if not exists(f'/home/{env.user}/miniconda3/envs/old_django'):
+            #run(f'{conda_binary} create --name old_django python=3.6')
+        #run(f'{conda_binary} install --force-reinstall -y -q --name old_django  --file requirements.txt')
+        pass # Since conda was only used for exercise purposes (pyvenv could not provide the required python executable) we are not going to do this step in a conda setting 
     else:
         if not exists('virtualenv/bin/pip'):
             run(f'python3.7 -m venv virtualenv')
