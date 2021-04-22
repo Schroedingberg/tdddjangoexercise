@@ -11,11 +11,21 @@ def deploy():
     site_folder = f'/home/{env.user}/sites/{env.host}'
     run(f'mkdir -p {site_folder}')
     with cd(site_folder):
+        print("Getting latest source....")
         _get_latest_source()
+        print("OK")
+        print("Updating venv....")
         _update_virtualenv()
+        print("OK")
+        print("Updating .env....")
         _create_or_update_dotenv()
+        print("OK")
+        print("Updating static files")
         _update_static_files()
-        _update_database()
+        print("OK")
+        print("Upgrading database....")
+        _upgrade_database()
+        print("OK")
 
 
 
@@ -44,7 +54,7 @@ def _create_or_update_dotenv( ):
     append('.env', 'DJANGO_DEBUG_FALSE=y')
     append('.env', f'SITENAME={env.host}' )
     current_contents = run('cat .env')
-    if DJANGO_SECRET_KEY not in current_contents:
+    if 'DJANGO_SECRET_KEY' not in current_contents:
         new_secret = ''.join(random.SystemRandom().choices('abcdefghijklmnopqrstuvwxyz0123456789', k = 50))
         append('.env', f'DJANGO_SECRET_KEY={new_secret}')
 
