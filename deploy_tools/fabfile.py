@@ -22,11 +22,8 @@ def deploy():
         print("OK")
         print("Updating static files")
         _update_static_files()
-<<<<<<< variant A
         print("OK")
         print("Upgrading database....")
->>>>>>> variant B
-======= end
         _upgrade_database()
         print("OK")
 
