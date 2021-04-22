@@ -6,3 +6,4 @@ db.sqlite3geckodriver.log
 /static/
 *.pyc
 .env
+*.pyc
